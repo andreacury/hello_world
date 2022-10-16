@@ -1,0 +1,98 @@
+Calcular suas finanças pessoais, tipicamente tudo que você talvez já faça em um Excel nós faremos utilizando uma linguagem de programação, então esse será seu primeiro programa e eu recomendo que você utilize inclusive para administrar as suas finanças pessoais.
+
+Por exemplo:
+janeiro
+salário: 3000
+aluguel: 1000
+conta de luz: 200
+conta de água: 100
+internet: 100
+transporte: 300
+lazer: 300
+alimentação: 500
+
+
+fevereiro
+salário: 3000
+aluguel: 1200
+conta de luz: 250
+conta de água: 100
+internet: 100
+transporte: 500
+lazer: 0
+alimentação: 1000
+
+Este conteúdo é parte do curso Hello World da Branas.io
+
+https://app.branas.io/hello-world
+
+
+
+Atividades:
+
+* quanto sobrou ou faltou de dinheiro em cada mês?
+* quanto está sobrando ou faltando no acumulado do ano?
+* se estiver faltando, calcular juros de 10% ao mês
+* se estiver positivo, calcular rendimentos de 0.5% ao mês
+* qual é o percentual de gastos em cada área? moradia, transporte, alimentação, lazer?
+
+1 - variáveis, operadores e if/else
+
+2 - funções, parâmetros e retorno
+Na segunda aula vamos continuar desenvolvendo projeto, dessa vez aprendendo mais sobre a criação e invocação de funções além de parâmetros e retornos.
+
+3 - arrays, objetos e for
+criação de objetos, no nível de chaves e valores
+utilização de for/in e manipulação de objetos.
+
+4 - classes, constructor e excessões
+utilização de classes
+
+5 - orientação à objeto, métodos e encapsulamento
+protegendo o estado interno do objeto
+
+6 - manipulação da DOM
+ interface gráfica
+
+7 - estilizando elementos em CSS 
+
+8 - componetização
+componentizar os elementos que estamos utilizando
+
+9 - frontend e backend
+diferença entre frontend e backend e as suas responsabilidades
+até então os dados estavam em memória
+
+10 - banco de dados
+criação e eexcução do BD 
+
+11 - definindo as camadas e responsabilidades do backend
+responsabilidades:
+1 - ponto de entrada da aplicação
+2 - conexão com o BD
+3 - definição dos serviços da API
+4 - interação com o BD
+5 - configuração das rotas da API e abertura do servidor numa porta específica
+
+Separe coisas que mudam por motivos diferentes
+Módulos de alto nível não devem depender de módulos de baixo nível
+
+12 - encerramento e próximos passos
+ajustes finais
+
+Próximos passos que você pode seguir:
+
+
+
+1 - Aprofundar o conhecimento na linguagem JS ou qualquer outra
+2 - Aprender um framework/library como React, Vue.js e Angular
+3 - Estudar o protocolo HTTP e entender os conceitos de API
+4 - Criar um projeto pessoal e publicar no GitHub (estudar Git)
+5 - Fazer networking, participar de meetups e eventos
+6 - Tentar fazer entrevistas, entender seu nível
+7 - Analise se faz sentido fazer uma faculdade (cco, si, ...)
+8 - Buscar um mentor, alguém que possa tirar dúvidas e te guiar nesse caminho
+9 - Descubra qual é a melhor maneira de estudar (ler livros e/ou artigos, aprender a utilizar o stackoverflow, fazer cursos)
+10 - Entrar em campo (nada substitui o dia a dia de trabalho)
+11 - Considerar entrar numa empresa de tecnologia por outra área (atendimento, implantação, vendas) e depois fazer uma transição
+12 - Aprender sistemas operacionais, redes e banco de dados (cloud, containers, ...)

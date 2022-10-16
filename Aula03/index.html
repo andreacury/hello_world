@@ -1,0 +1,86 @@
+<html>
+  <script>
+    function arredondar(valor) {
+      return Math.round(valor * 100) / 100;
+    }
+
+    function calcularJuros(valor) {
+      juros = arredondar(valor * 0.1);
+      return juros;
+    }
+
+    function calcularRendimentos(valor) {
+      rendimentos = arredondar(valor * 0.005);
+      console.log(rendimentos);
+      return rendimentos;
+    }
+
+    function calcularSaldo(mes, saldoInicial, lancamentos) {
+      console.log(mes);
+      saldo = saldoInicial;
+      for (lancamento of lancamentos) {
+        if (lancamento.tipo === "receita") {
+          saldo += lancamento.valor;
+        }
+        if (lancamento.tipo === "despesa") {
+          saldo -= lancamento.valor;
+        }
+      }
+
+      estaNegativo = saldo < 0;
+      if (estaNegativo) {
+        juros = calcularJuros(saldo);
+        saldo = arredondar(saldo + juros);
+      } else {
+        rendimentos = calcularRendimentos(saldo);
+        saldo = arredondar(saldo + rendimentos);
+      }
+      return saldo;
+    }
+    saldoInicial = 0;
+    lancamentosJaneiro = [
+      { categoria: "Salário", tipo: "receita", valor: 2600 },
+      { categoria: "Aluguel", tipo: "despesa", valor: 616 },
+      { categoria: "Conta de Luz", tipo: "despesa", valor: 47.4 },
+      { categoria: "Conta de Água", tipo: "despesa", valor: 91.29 },
+      { categoria: "Internet", tipo: "despesa", valor: 105.9 },
+      { categoria: "Transporte", tipo: "despesa", valor: 378.25 },
+      { categoria: "Lazer", tipo: "despesa", valor: 148.27 },
+      { categoria: "Alimentação", tipo: "despesa", valor: 700 },
+      { categoria: "Cartão", tipo: "despesa", valor: 978.25 },
+      { categoria: "Farmácia", tipo: "despesa", valor: 109.88 },
+    ];
+    saldo1 = calcularSaldo("Janeiro", saldoInicial, lancamentosJaneiro);
+    console.log(saldo1);
+    lancamentosFevereiro = [
+      { categoria: "Salário", tipo: "receita", valor: 2600 },
+      { categoria: "Aluguel", tipo: "despesa", valor: 616 },
+      { categoria: "Conta de Luz", tipo: "despesa", valor: 88.7 },
+      { categoria: "Conta de Água", tipo: "despesa", valor: 163.94 },
+      { categoria: "Internet", tipo: "despesa", valor: 105.9 },
+      { categoria: "Transporte", tipo: "despesa", valor: 357.21 },
+      { categoria: "Alimentação", tipo: "despesa", valor: 780 },
+      { categoria: "Farmácia", tipo: "despesa", valor: 116.77 },
+    ];
+    saldo2 = calcularSaldo("Fevereiro", saldo1, lancamentosFevereiro);
+    console.log(saldo2);
+    lancamentosMarco = [
+      { categoria: "Salário", tipo: "receita", valor: 3500 },
+      { categoria: "Aluguel", tipo: "despesa", valor: 648.64 },
+      { categoria: "Conta de Luz", tipo: "despesa", valor: 71 },
+      { categoria: "Conta de Água", tipo: "despesa", valor: 134.2 },
+      { categoria: "Internet", tipo: "despesa", valor: 105.9 },
+      { categoria: "Transporte", tipo: "despesa", valor: 450.35 },
+      { categoria: "Lazer", tipo: "despesa", valor: 158 },
+      { categoria: "Alimentação", tipo: "despesa", valor: 960 },
+    ];
+    saldo3 = calcularSaldo("Março", saldo2, lancamentosMarco);
+    console.log(saldo3);
+    acumuladoDoAno = saldo3;
+    console.log("Ano");
+    console.log(acumuladoDoAno);
+  </script>
+  <body>
+    <h1>Hello World - Primeiros passos na programação</h1>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:14.1
+    container_name: aula-postgres
+    environment:
+      POSTGRES_DB: teste
+      POSTGRES_USER: teste
+      POSTGRES_PASSWORD: teste
+    ports:
+      - "127.0.0.1:5432:5432"
+    networks:
+      - net
+    healthcheck:
+      test: ["CMD", "pg_isready", "-q", "-U", "teste"]
+      interval: 5s
+      timeout: 10s
+      retries: 2
+
+  pgadmin:
+    container_name: aula-pgadmin
+    image: dpage/pgadmin4
+    entrypoint:
+      - "/bin/sh"
+      - "-c"
+      - "/bin/echo 'postgres:5432:*:teste:teste' > /tmp/pgpassfile && chmod 600 /tmp/pgpassfile && /entrypoint.sh"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: andreacurymarques@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: teste
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
+    ports:
+      - "127.0.0.1:16543:80"
+    depends_on:
+      - postgres
+    volumes:
+      - ./postgres/servers.json:/pgadmin4/servers.json:ro
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          'netstat -an | grep ":80" > /dev/null; if [ 0 != $$? ]; then exit 1; fi;',
+        ]
+      interval: 5s
+      timeout: 10s
+      retries: 20
+    networks:
+      - net
+
+  flyway-postgres:
+    container_name: flyway-postgres
+    image: flyway/flyway
+    command: -url=jdbc:postgresql://postgres/postgres -schemas=postgres -user=teste -password=teste migrate
+    volumes:
+      - ./migrations:/flyway/sql:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - net
+
+networks:
+  net:
+    name: aula-net
+    driver: bridge

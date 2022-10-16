@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg-promise": "^10.12.0"
+  },
+  "scripts": {
+    "subir": "docker-compose -f ./docker-compose.yml up -d",
+    "descer": "docker-compose -f ./docker-compose.yml down"
+  }
+}
